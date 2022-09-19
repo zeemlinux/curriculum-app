@@ -20,9 +20,11 @@ pipeline {
           }
         }
 
-        stage('Pruning') {
+        stage('nmap scan') {
           steps {
-            sh 'docker container prune || y'
+            sh '''sh \'rm nmap* || true\'
+sh \'docker run --rm -v "$(pwd)":/data uzyexe/nmap -sS -sV -oX nmap 192.168.1.50\'
+sh \'cat nmap\''''
           }
         }
 

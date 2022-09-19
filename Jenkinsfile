@@ -1,10 +1,5 @@
 pipeline {
-  agent {
-    node {
-      label 'devops'
-    }
-
-  }
+  agent any
   stages {
     stage('Git Checkout') {
       steps {

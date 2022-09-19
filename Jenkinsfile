@@ -25,9 +25,9 @@ pipeline {
 
     stage('Code-secret Checkout') {
       steps {
-        sh '''rm trufflehog || true
-docker pull gesellix/trufflehog
-docker run -t gesellix/trufflehog --json https://github.com/zeemlinux/curriculum-app.git > trufflehog
+        sh '''rm trufflehog || true;
+docker pull gesellix/trufflehog;
+docker run -t gesellix/trufflehog --json https://github.com/zeemlinux/curriculum-app.git > trufflehog;
 cat trufflehog'''
       }
     }

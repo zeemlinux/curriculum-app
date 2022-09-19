@@ -44,5 +44,22 @@ cat trufflehog'''
       }
     }
 
+    stage('Front end Unit test') {
+      parallel {
+        stage('Front end Unit test') {
+          steps {
+            sh 'cd curriculum-front && npm i && npm run test:unit'
+          }
+        }
+
+        stage('Back end unit test') {
+          steps {
+            sh 'cd curriculum-back && npm i && npm run test:unit'
+          }
+        }
+
+      }
+    }
+
   }
 }

@@ -22,9 +22,9 @@ pipeline {
 
         stage('nmap scan') {
           steps {
-            sh '''sh \'rm nmap* || true\'
-sh \'docker run --rm -v "$(pwd)":/data uzyexe/nmap -sS -sV -oX nmap 192.168.1.50\'
-sh \'cat nmap\''''
+            sh '''rm nmap* || true
+docker run --rm -v "$(pwd)":/data uzyexe/nmap -sS -sV -oX nmap 192.168.1.8
+cat nmap'''
           }
         }
 

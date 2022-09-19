@@ -7,12 +7,23 @@ pipeline {
   }
   stages {
     stage('Git Checkout') {
-      steps {
-        git(url: 'https://github.com/zeemlinux/curriculum-app.git', branch: 'dev')
+      parallel {
+        stage('Git Checkout') {
+          steps {
+            git(url: 'https://github.com/zeemlinux/curriculum-app.git', branch: 'dev')
+          }
+        }
+
+        stage('Logs') {
+          steps {
+            sh 'ls -last'
+          }
+        }
+
       }
     }
 
-    stage('Code Checkout') {
+    stage('Code-secret Checkout') {
       steps {
         sh '''rm trufflehog || true
 docker pull gesellix/trufflehog

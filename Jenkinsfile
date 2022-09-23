@@ -26,5 +26,11 @@ cat trufflehog'''
       }
     }
 
+    stage('List Content') {
+      steps {
+        sh 'ls -last'
+      }
+    }
+
   }
 }

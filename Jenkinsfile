@@ -32,5 +32,11 @@ cat trufflehog'''
       }
     }
 
+    stage('Units Test') {
+      steps {
+        sh 'cd curriculum-front && npm i && npm run test:unit'
+      }
+    }
+
   }
 }

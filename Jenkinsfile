@@ -32,9 +32,9 @@ cat trufflehog'''
       }
     }
 
-    stage('Units Test') {
+    stage('Build') {
       steps {
-        sh 'cd curriculum-front && npm i && npm run test:unit || True'
+        sh 'docker build -f curriculum-front/Dockerfile . -t zeemlinux/curr-app'
       }
     }
 

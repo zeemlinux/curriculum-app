@@ -38,5 +38,16 @@ cat trufflehog'''
       }
     }
 
+    stage('Login To Registry') {
+      environment {
+        DOCKERHUB_USER = 'zeemlinux'
+        DOCKERHUB_PASSWORD = 'G0d1sgud!'
+      }
+      steps {
+        sh '''docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
+'''
+      }
+    }
+
   }
 }

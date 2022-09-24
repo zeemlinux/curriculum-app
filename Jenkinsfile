@@ -51,7 +51,7 @@ cat trufflehog'''
 
     stage('Push Image') {
       steps {
-        sh 'docker push zeemlinux/curr-app:v1'
+        sh 'docker push zeemlinux/curr-app'
       }
     }
 

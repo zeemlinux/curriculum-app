@@ -34,7 +34,8 @@ cat trufflehog'''
 
     stage('Build') {
       steps {
-        sh 'docker build -f curriculum-front/Dockerfile . -t zeemlinux/curr-app'
+        sh '''docker build -f curriculum-front/Dockerfile -t $JOB_NAME:v1.$BUILD_ID .
+'''
       }
     }
 
@@ -51,7 +52,7 @@ cat trufflehog'''
 
     stage('Push Image') {
       steps {
-        sh 'docker push zeemlinux/curr-app'
+        sh 'docker push /curr-app'
       }
     }
 

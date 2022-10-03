@@ -41,18 +41,18 @@ cat trufflehog'''
 
     stage('Login To Registry') {
       environment {
-        DOCKERHUB_USER = 'zeemlinux'
-        DOCKERHUB_PASSWORD = 'G0d1sgud!'
+        DOCKERHUB_USER = 'admin'
+        DOCKERHUB_PASSWORD = 'Harbor12345'
       }
       steps {
-        sh '''docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASSWORD
-'''
+        sh 'docker login 192.168.1.9'
       }
     }
 
     stage('Push Image') {
       steps {
-        sh 'docker push /curr-app'
+        sh '''docker tag $JOB_NAME:v1.$BUILD_ID 192.168.1.9/curr_app/$JOB_NAME:v1.$BUILD_ID 
+docker push 192.168.1.9/curr_app/$JOB_NAME:v1.$BUILD_ID'''
       }
     }
 

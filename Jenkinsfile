@@ -51,8 +51,8 @@ cat trufflehog'''
 
     stage('Push Image') {
       steps {
-        sh '''docker tag $JOB_NAME:v1.$BUILD_ID 192.168.1.9/curr_app/$JOB_NAME:v1.$BUILD_ID 
-docker push 192.168.1.9/curr_app/$JOB_NAME:v1.$BUILD_ID'''
+        sh '''docker tag $JOB_NAME:v1.$BUILD_ID 192.168.1.9/app/$JOB_NAME:v1.$BUILD_ID 
+docker push 192.168.1.9/app/$JOB_NAME:v1.$BUILD_ID'''
       }
     }
 
